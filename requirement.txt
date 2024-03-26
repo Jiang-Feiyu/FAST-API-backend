@@ -21,7 +21,6 @@ colorama==0.4.6
 colored-traceback==0.3.0
 contourpy==1.2.0
 crypto==1.4.1
-cryptography @ file:///private/tmp/python-cryptography-20230919-6530-1nu01ji/cryptography-41.0.4
 cycler==0.12.1
 decorator==5.1.1
 executing==2.0.1
@@ -125,7 +124,7 @@ soxr==0.3.7
 stack-data==0.6.3
 starlette==0.32.0.post1
 stego-lsb==1.5.4
-TBB==0.2
+TBB==2021.11.0
 tensorboard==2.15.1
 tensorboard-data-server==0.7.2
 tensorflow==2.15.0
