@@ -195,7 +195,7 @@ async def record_audio(audio: UploadFile = File(...)):
         else:
             print(f"文件 {wav_file_path} 不存在")
     
-        return {"filename": file_name, "file_size": os.path.getsize(file_path),"answer": AIanswer}
+        return {"answer": AIanswer}
         
         
     except Exception as e:
@@ -240,7 +240,7 @@ async def upload_file(file: UploadFile = File(...)):
         else:
             print(f"文件 {file_path} 不存在")
     
-        return {"filename": file_name, "file_size": os.path.getsize(file_path),"answer": AIanswer}
+        return {"answer": AIanswer}
     except Exception as e:
         # 使用日志记录详细的错误信息
         logging.error("An error occurred while uploading the file:", exc_info=True)
