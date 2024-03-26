@@ -188,6 +188,12 @@ async def record_audio(audio: UploadFile = File(...)):
             
         AIanswer = InterpretAI(file_counter)
         print('APIHost AIanswer (interpret) = ',AIanswer)
+        
+        if os.path.exists(wav_file_path):  # 检查文件是否存在
+            os.remove(wav_file_path)  # 删除文件
+            print(f"文件 {wav_file_path} 已成功删除")
+        else:
+            print(f"文件 {wav_file_path} 不存在")
     
         return {"filename": file_name, "file_size": os.path.getsize(file_path),"answer": AIanswer}
         
@@ -227,6 +233,12 @@ async def upload_file(file: UploadFile = File(...)):
         # For now, we will just return the file details
         AIanswer = InterpretAI(file_counter)
         print('APIHost AIanswer (interpret) = ',AIanswer)
+        
+        if os.path.exists(file_path):  # 检查文件是否存在
+            os.remove(file_path)  # 删除文件
+            print(f"文件 {file_path} 已成功删除")
+        else:
+            print(f"文件 {file_path} 不存在")
     
         return {"filename": file_name, "file_size": os.path.getsize(file_path),"answer": AIanswer}
     except Exception as e:
