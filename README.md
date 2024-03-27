@@ -1,4 +1,4 @@
-This is the backend of my FYP project `Development of a Full-stack Aphasia AI Web App based on React-FASTAPI`, you may refer the frontend part to [here]. This repositories mainly records the critical deployment process to the `AWS EC2`.
+# Deploy FASTAPI on AWS EC2
 
 ### Launch an EC2 Instance
 After register an AWS account, go to `Console Home` and click to `EC2 Dashboard`. Config an EC2 Instance as following:
@@ -68,7 +68,7 @@ pip3 install -r requirement.txt
 
 ### Start the FASTAPI
 ```
-python3 -m uvicorn main:app
+python3 -m uvicorn --host 0.0.0.0  main:app
 ```
 
 ### Increase EC2 storage
@@ -84,7 +84,7 @@ I found the 8 GiB is not enough for my project so I decided to upgrade the stora
     ```
     lsblk
     ```
-    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18e0f3e4502b4a5c86b759dc04f0c35c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=807&h=360&s=79719&e=png&b=020202" alt="螢幕截圖 2024-03-27 下午12.14.22.png" width="70%" />
+    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18e0f3e4502b4a5c86b759dc04f0c35c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=807&h=360&s=79719&e=png&b=020202" alt="螢幕截圖 2024-03-27 下午12.14.22.png" width="50%" />
 
 - Increase our partition
     ```
@@ -96,8 +96,28 @@ I found the 8 GiB is not enough for my project so I decided to upgrade the stora
     sudo resize2fs /dev/xvda1
     ```
     You should see the volume got extend
-    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4567860ba8274aaf8b44c9051358a270~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=692&h=239&s=55670&e=png&b=020202" alt="螢幕截圖 2024-03-27 下午12.21.12.png" width="70%" />
+    
+    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4567860ba8274aaf8b44c9051358a270~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=692&h=239&s=55670&e=png&b=020202" alt="螢幕截圖 2024-03-27 下午12.21.12.png" width="50%" />
 
+### Security Setting
+If new port needed (default 80), you may consider to add a rule:
+```
+TCP [port] 0.0.0.0/0(all ports)
+```
+<img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edf72349579e4ef5830cff9bab6a561f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2490&h=938&s=172556&e=png&b=ffffff" alt="螢幕截圖 2024-03-27 下午5.50.05.png" width="70%" />
+
+### Test connection
+```
+netcat [ip address] [port]
+curl http://[ip address]:[port]
+```
+A common problem is the Chorme may automatically set `http`->`https`, whcih may result in `Invalid HTTP request received`. One way to solve this is to deploy the frontend to the server as well. 
+
+Another problem may encounter is `Mixed Content: This request has been blocked; the content must be servered over HTTPS`. You can add
+```
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+```
+at the haed part of your `public/index.html` of your React front-end.
 
 ### Other useful links:
 [How to Deploy FastAPI on AWS EC2: Quick and Easy Steps]
