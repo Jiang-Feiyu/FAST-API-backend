@@ -40,6 +40,16 @@ Then just copy the ssh command.Remember you need to go to the directory where yo
 
 <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca101cc514b24ec8bdcec738d3278688~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=948&h=873&s=135153&e=png&b=010101" alt="螢幕截圖 2024-03-27 上午11.50.48.png" width="50%" />
 
+For easeier SSH connection, may congif your ssh in your `.ssh` dir as following:
+        
+```
+Host aws
+        Hostname [your server].compute.amazonaws.com
+        User ubuntu
+        IdentityFile ~/.ssh/fast_api_key.pem
+```
+And directly use `ssh aws` to login.
+
 ### Server settings
 ```
 sudo apt install -y python3-pip nginx
