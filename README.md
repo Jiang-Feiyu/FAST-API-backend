@@ -129,9 +129,25 @@ Another problem may encounter is `Mixed Content: This request has been blocked; 
 ```
 at the haed part of your `public/index.html` of your React front-end.
 
+### Visit from browser
+Only Chrome from laptop is allowed to visit the web page.
+ 
+- Browser settings
+        Type the URL of `chrome://flags/#unsafely-treat-insecure-origin-as-secure` in your chrome and give the permission of http://3.27.151.169:3000 , change the permission to Enabled and then restart the Chrome. 
+- You can login with an initial account:
+  ```
+        Username: user1@hku.hk
+        Password: ^Jz2kBu2%To1
+  ```
+- Audios
+        You can test the Audio Recognition function by uploading the audio or just record it online, the estimated response time is 2-4 seconds. Test audios could be found [Here] 
+
+
 ### Other useful links:
 [How to Deploy FastAPI on AWS EC2: Quick and Easy Steps]
 
 [here]: https://github.com/Jiang-Feiyu/FYP-Full-stack-Aphasia-AI-Web-App-Development-based-on-React-and-FASTAPI
 
 [How to Deploy FastAPI on AWS EC2: Quick and Easy Steps]:https://www.youtube.com/watch?v=SgSnz7kW-Ko
+
+[Here]: https://github.com/Jiang-Feiyu/FYP-Full-stack-Aphasia-AI-Web-App-Development-based-on-React-and-FASTAPI/tree/main/testAudio
