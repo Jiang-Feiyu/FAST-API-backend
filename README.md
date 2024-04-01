@@ -1,4 +1,5 @@
 # Deploy FASTAPI on AWS EC2
+For the full stack code, please refer to: https://github.com/Jiang-Feiyu/Development-of-a-Full-stack-Aphasia-AI-Web-App-based-on-React-FASTAPI 
 
 ### Launch an EC2 Instance
 After register an AWS account, go to `Console Home` and click to `EC2 Dashboard`. Config an EC2 Instance as following:
