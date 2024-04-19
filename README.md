@@ -143,6 +143,19 @@ Only Chrome from laptop is allowed to visit the web page.
 - Audios
         You can test the Audio Recognition function by uploading the audio or just record it online, the estimated response time is 2-4 seconds. Test audios could be found [Here] 
 
+### `Tmux`
+A session manager that runs on Unix. One of the key features of Tmux is its ability to run in the background, which means you can keep your terminal sessions running even after you close the terminal window or disconnect from the remote server. This makes it useful for long-running tasks or for working on remote machines.
+
+Useful cmds:
+```
+tmux -> create a new session
+Ctrl+b, d -> quit the session
+tmux list-sessions -> list sessions
+tmux attach-session -t 1 -> go to the exist session
+```
+
+### Google Private Mode
+`Shift command N`
 
 ### Other useful links:
 [How to Deploy FastAPI on AWS EC2: Quick and Easy Steps]
